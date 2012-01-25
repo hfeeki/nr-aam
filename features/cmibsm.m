@@ -1,5 +1,8 @@
 function [v,iniPos,imCentroids,H,W] = cmibsm(im, k, infA, norm)
 
+% This function computes the nrBSM method for a given image [im] using
+% k*k number of focuses and a influence area set by [infA]
+
 [H,W] = size(im);
 
 dh = mod(H,k);
@@ -12,11 +15,7 @@ if (dh~=0 || dw~=0)
 	end
 	if (dw~=0)
 		newW = newW + (k-dw);
-	end
-	%     newIm = zeros(newH, newW);
-	%     offH = int32(floor((newH-H)/2));
-	%     offW = int32(floor((newW-W)/2));
-	%     newIm(1+offH:H+offH, 1+offW:W+offW)=im;
+    end
 	newIm = imresize(im, [newH, newW]);
 	[v,iniPos,imCentroids,H,W]=cmibsm(newIm, k, infA, norm);
 	return;
@@ -32,6 +31,5 @@ if mod(maxLevel,1)~=0
 end
 
 [iniPos,imCentroids] = calculateInitialPositions(0, maxLevel, im, [], [1,1,H,W]);
-% v=c_hdbsm(double(im'), reshape(iniPos',k^2*2,1), H, W, K, infA, norm);
 v=c_cmibsm(double(im'), iniPos, H, W, k, infA, norm);
 end
