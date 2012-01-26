@@ -1,10 +1,6 @@
 1.- INTRODUCTION
 
-This code implements the method described in [1] for the description and recognition of symbols using a deformable descriptor (introduced in [2]) and a new model of appearance.
-
-J. Almazán, A. Fornés, E. Valveny. A non-rigid appearance model for shape description and recognition. Pattern Recognition, 2012.
-
-This code has been developed by Jon Almazán. For any comment, question or suggestion, please contact to almazan@cvc.uab.es.
+This code implements the method described in [1] for the description and recognition of symbols using a deformable descriptor (introduced in [2]) and a new model of appearance. It has been developed by Jon Almazán. For any comment, question or suggestion, please contact to almazan@cvc.uab.es.
 
 2.- USAGE
 
